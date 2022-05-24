@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+a{
+    text-decoration: none;
+}
+
+
+.btton{
+    display: inline-block;
+    color: $light;
+    border: 2px solid transparent;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.75rem;
+    letter-spacing: .1em;
+    border-radius: 50rem;
+    padding: 0.4em 1.5em 0.4em;    
+    background: map-get($purplescale, "300");
+    font-weight: 700;       
+}
+.hero-btton{
+    @extend .btton;
+    position: relative;
+    font-size: 1.2rem;
+    z-index: 20;
+    background:linear-gradient(345deg, map-get($purplescale,"700") 0%,
+    map-get($purplescale,"400") 33%,
+    $dark 66%,
+    $dark 100%)
+    99% 50% / 400% 400%;
+    transition: all 0.5s ease;
+    &:hover{
+        background-position: 1% 50%;
+        border: 2px solid map-get($purplescale, "300" );
+        transition: all 0.5s ease;
+    }
+}

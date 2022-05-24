@@ -1,0 +1,19 @@
+@mixin row{
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin column {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+@mixin name {
+    display: flex;
+    flex-direction: row-reverse;
+}
+@mixin rcolumn{
+    display: flex;
+    flex-direction: column-reverse;
+}

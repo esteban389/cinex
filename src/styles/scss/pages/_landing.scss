@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+body{
+    background-color: map-get($purplescale, "1200" );
+    color: $light;
+    overflow-x: hidden;
+    font-weight: 400;
+    & h3{
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+    }
+}

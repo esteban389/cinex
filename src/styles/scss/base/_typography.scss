@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "gilroy";
+    src: url(/src/fonts/gilroy/Gilroy-Regular.ttf);
+
+}
+@font-face {
+    font-family: "bold-gilroy";
+    src: url(/src/fonts/gilroy/Gilroy-Bold.ttf);
+}
+$primary-font: gilroy;
+$bold-font: bold-gilroy;
+$fall-back-font: sans-serif;
+$base-font-size: calc(1vw + 1vh);
+:root {
+    font-size: $base-font-size;
+}
+
+body{
+    font-family: $primary-font, $fall-back-font;
+}

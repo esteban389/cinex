@@ -1,0 +1,84 @@
+@use "../abstracts" as *;
+@use "../base/typography" as t;
+@mixin type1 {
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 32px;
+}
+.hero{
+    color: $light;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    & .hero-video{
+        width: 100%;
+        & video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    & .hero-content{
+        @include column();
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+        text-transform: uppercase;
+        &>div{
+            margin-bottom:2.5rem;
+            @include type1();
+            &> div.p1{
+                &>p{                
+                    @media (max-width:575px) {
+                            font-size: 1.25rem;                
+                    }
+                }
+                &>span{
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                    @media (max-width:575px) {
+                        font-size: 1.6rem;                
+                    }                
+                }
+                &> div.line{
+                    width: 100%;
+                    height: 3.5px;
+                    margin-block: 1rem;
+                    background: linear-gradient(to right, map-get($purplescale,"900") 0%,
+                    map-get($purplescale,"700") 37%,
+                    map-get($purplescale,"600") 78%,
+                    map-get($purplescale, "900") 90%,
+                    map-get($purplescale,"1200") 97%);
+                }
+            }
+            & > div.p2{
+                font-size: 1.5rem;
+                & >p{
+                    text-transform:none;
+                }
+                &>h2{
+                    margin-block: 1rem;
+                    font-size: 3rem;
+                    font-family: t.$bold-font;
+                }
+            }
+        }
+    }
+    &::after{
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: -5rem;
+        background: linear-gradient(to top, map-get($purplescale,"1200") 0%, rgba(0,0,0,0) 60%);
+    }
+}

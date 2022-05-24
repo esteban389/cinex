@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+
+footer{
+    @include column();
+    place-items: center;
+    text-align: center;
+    color: map-get($purplescale, "200" );
+    padding: 1rem;
+    & .social-media{
+        width: 50%;
+        @include row();
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        & img{
+            vertical-align: middle;
+        }
+        @media (min-width:575px) {
+            width: 20%;
+            & img{
+                transform: scale(1.2);
+            }
+        }
+    }
+}

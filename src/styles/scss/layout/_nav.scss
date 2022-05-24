@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as *;
+nav{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 0.3rem 1.5rem;
+    background-color: $o-dark;
+    justify-content: space-between;
+    & h2{
+        color: $light;
+    }   
+}
