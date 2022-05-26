@@ -1,0 +1,38 @@
+@use "../abstracts/" as *;
+
+.highlight-movie{
+    background: $o-dark url("../../media/home/higlight-movie.png") center/cover no-repeat;
+    position: relative;
+    height: 90vh;
+    margin: 0;
+}
+
+.highlight-wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    & .highlight-container{
+        @include column();
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        bottom: 10%;
+        height: fit-content;
+        padding: 2rem;
+    }
+}
+
+.highlight-text{
+    text-transform: uppercase;
+    & h6{
+        font-size: 1.2rem;
+        margin-block: 1rem;
+    }
+    & p{
+        font-size: 1rem;
+        @media (min-width:575px) {
+            font-size: 0.7rem;
+        }
+    }
+}

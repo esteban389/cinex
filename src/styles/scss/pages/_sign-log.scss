@@ -1,4 +1,16 @@
-body{
-    background: transparent;
-    background-image: url("../../media/log-sign/bg-gradient.jpg");
+@use "../abstracts/" as *;
+
+
+section{
+  position: relative;
+  width: 100%;
+  display: block;
+  margin-top: 3rem
+}
+
+.container{
+  @include column();
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
 }

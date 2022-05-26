@@ -74,11 +74,11 @@ select {
 }
 @font-face {
   font-family: "gilroy";
-  src: url(/src/fonts/gilroy/Gilroy-Regular.ttf);
+  src: url("../../fonts/gilroy/Gilroy-Regular.ttf");
 }
 @font-face {
   font-family: "bold-gilroy";
-  src: url(/src/fonts/gilroy/Gilroy-Bold.ttf);
+  src: url("../../fonts/gilroy/Gilroy-Bold.ttf");
 }
 :root {
   font-size: calc(1vw + 1vh);
@@ -101,9 +101,54 @@ body h3 {
   text-align: center;
 }
 
-body {
-  background: transparent;
-  background-image: url("../../media/log-sign/bg-gradient.jpg");
+section {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin-top: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.admin-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-container > table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  width: 100%;
+}
+.admin-container > table th {
+  padding: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.admin-container > table td {
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 300;
+}
+.admin-container > table tr:nth-child(even) {
+  background-color: hsl(297deg, 86%, 25%);
+}
+.admin-container > table tr:not(:nth-child(even)) {
+  background-color: hsl(274deg, 70%, 22%);
+}
+
+.admin-edit {
+  background: hsl(297deg, 86%, 25%);
+  padding: 3rem;
+  width: 50%;
+  border-radius: 10px;
 }
 
 a {
@@ -139,11 +184,94 @@ a {
   transition: all 0.5s ease;
 }
 
+.btn {
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  margin-top: 10%;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: hsl(273deg, 85%, 57%);
+  color: #fff;
+  box-shadow: 0 8px 24px 0 hsl(274deg, 70%, 22%);
+}
+.btn:active, .btn :focus {
+  background-color: hsl(280deg, 91%, 59%);
+  color: #fff;
+  box-shadow: 0 8px 24px 0 hsl(273deg, 85%, 57%);
+}
+.btn:hover {
+  background-color: hsl(280deg, 91%, 59%);
+  color: #fff;
+  box-shadow: 0 8px 24px 0 hsl(273deg, 85%, 57%);
+}
+
+.movie {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.movie:hover {
+  transform: scale(1.05);
+  margin-block: 0.2rem;
+}
+.movie::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top left, hsl(240deg, 86%, 8%) 0%, hsl(240deg, 86%, 8%) 50%, rgba(0, 0, 0, 0) 50%), linear-gradient(to bottom right, hsl(286deg, 85%, 8%) 0%, hsl(286deg, 85%, 8%) 50%, rgba(0, 0, 0, 0) 50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.movie:hover::before {
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+.alert {
+  border-radius: 10px;
+  color: hsl(0deg, 0%, 30%);
+  font-weight: 600;
+  padding: 4px;
+  font-size: clamp(10px, 16px, 1.2vh + 1.2vw);
+}
+
+.red-alert {
+  border: 2px solid red;
+  background-color: hsl(0deg, 50%, 80%);
+}
+
+.green-alert {
+  border: 2px solid green;
+  background-color: hsl(147deg, 50%, 80%);
+}
+
 .hero {
   color: #fff;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  margin-top: 0;
 }
 .hero .hero-video {
   width: 100%;
@@ -223,14 +351,75 @@ nav {
   top: 0;
   right: 0;
   left: 0;
-  overflow: hidden;
+  font-size: 1.2rem;
   z-index: 1000;
   padding: 0.3rem 1.5rem;
   background-color: rgba(255, 255, 255, 0.1);
+  align-items: center;
   justify-content: space-between;
 }
 nav h2 {
   color: #fff;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-nav {
+  background-color: hsl(0deg, 0%, 6%);
+  transition: background-color 0.2s ease;
+}
+.home-nav:hover {
+  background-color: hsl(0deg, 0%, 6%);
+  transition: background-color 0.2s ease;
+}
+.home-nav .nav-user {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.home-nav .nav-user button, .home-nav .nav-user a {
+  color: #fff;
+  font-weight: 400;
+  background: transparent;
+  cursor: pointer;
+  border: transparent;
+}
+.home-nav .nav-user img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.home-nav .nav-user:hover .dropdown-content {
+  display: flex;
+}
+.home-nav .nav-user .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+  position: absolute;
+  min-width: fit-content;
+  padding: 0.5rem;
+  bottom: -4rem;
+  top: 2rem;
+  right: 0;
+  background: hsl(0deg, 0%, 6%);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.nav-active {
+  background-color: hsla(0deg, 0%, 6%, 0);
 }
 
 .landing-movie-container {
@@ -475,6 +664,346 @@ footer .social-media img {
   footer .social-media img {
     transform: scale(1.2);
   }
+}
+
+a {
+  cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+h6 span {
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+[type=checkbox] {
+  display: none;
+}
+
+.checkbox:checked + label,
+.checkbox:not(:checked) + label {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: hsl(280deg, 91%, 59%);
+}
+
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before {
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: hsl(262deg, 87%, 37%);
+  content: "";
+  z-index: 20;
+  top: -10px;
+  left: -10px;
+  transition: all 0.5s ease;
+}
+
+.checkbox:checked + label:before {
+  transform: translateX(44px);
+}
+
+.card-3d-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  margin-top: 60px;
+}
+
+.card-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 600ms ease-out;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, hsla(0deg, 0%, 100%, 0.12), hsla(0deg, 0%, 100%, 0));
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+  transform: rotateY(180deg);
+}
+
+.center-wrap {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  z-index: 20;
+}
+
+.form-group {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.form-style {
+  padding: 13px 20px;
+  padding-left: 55px;
+  height: 48px;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #c4c3ca;
+  background-color: #1f2029;
+  border: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+}
+.form-style:focus, .form-style :active {
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+}
+
+.input-icon {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: #ffeba7;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:-ms-input-placeholder {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input::-moz-placeholder {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:-moz-placeholder {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input::-webkit-input-placeholder {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:focus:-ms-input-placeholder {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:focus::-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:focus:-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.form-group input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.highlight-movie {
+  background: rgba(255, 255, 255, 0.1) url("../../media/home/higlight-movie.png") center/cover no-repeat;
+  position: relative;
+  height: 90vh;
+  margin: 0;
+}
+
+.highlight-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.highlight-wrap .highlight-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 10%;
+  height: fit-content;
+  padding: 2rem;
+}
+
+.highlight-text {
+  text-transform: uppercase;
+}
+.highlight-text h6 {
+  font-size: 1.2rem;
+  margin-block: 1rem;
+}
+.highlight-text p {
+  font-size: 1rem;
+}
+@media (min-width: 575px) {
+  .highlight-text p {
+    font-size: 0.7rem;
+  }
+}
+
+.home-movies {
+  place-content: center;
+  padding: 0.6rem;
+  display: grid;
+  gap: 1.2em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 7rem));
+}
+
+.movie-info {
+  min-height: 100vh;
+  margin-top: 0;
+}
+.movie-info .movie-info-container {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+}
+.movie-info .movie-info-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, hsl(0deg, 0%, 0%) 15%, hsla(0deg, 0%, 0%, 0.8) 30%, hsla(0deg, 0%, 0%, 0.6) 40%, hsla(0deg, 0%, 0%, 0) 60%), linear-gradient(to right, hsla(0deg, 0%, 20%, 0.9), hsla(0deg, 0%, 20%, 0.6), hsla(0deg, 0%, 0%, 0) 30%), radial-gradient(farthest-corner at 0 100%, hsla(0deg, 0%, 20%, 0.9), hsla(0deg, 0%, 20%, 0.6), hsla(0deg, 0%, 0%, 0) 40%);
+}
+.movie-info .movie-info-container h3 {
+  text-align: left;
+}
+.movie-info .movie-info-container span {
+  font-size: 0.7rem;
+  color: hsl(0deg, 0%, 70%);
+  font-weight: 500;
+}
+.movie-info .movie-info-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.movie-info .movie-info-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
+  bottom: 2rem;
+  padding: 1rem;
+  max-width: 50ch;
+}
+.movie-info .movie-info-container .play {
+  border-radius: 28px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgb(71, 16, 193), rgb(120, 87, 255) 92%, rgb(129, 155, 253) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.movie-info .movie-info-container .play:hover {
+  background-color: rgb(91, 28, 230);
+  background-image: none;
+  font-size: 1.2em;
+  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 
 /*# sourceMappingURL=main.css.map */

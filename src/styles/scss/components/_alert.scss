@@ -1,0 +1,18 @@
+.alert{
+    
+    border-radius: 10px;
+    
+    color: hsl(0, 0%, 30%);
+    font-weight: 600;
+    padding: 4px;
+    font-size: clamp(10px,16px,calc(1.2vh + 1.2vw));
+}
+.red-alert{
+    border: 2px solid red;
+    background-color: hsl(0, 50%, 80%);
+}
+
+.green-alert{
+    border: 2px solid green;
+    background-color: hsl(147, 50%, 80%);
+}

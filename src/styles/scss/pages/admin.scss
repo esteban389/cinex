@@ -1,0 +1,37 @@
+@use "../abstracts/" as *;
+
+.admin-container{
+    padding: 2rem;
+    @include column();
+    align-items: center;
+    &>table{
+        border-collapse: collapse;
+        border-radius: 10px;
+        width: 100%;
+            & th{
+                padding: 1rem;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            
+            & td{
+                padding: 0.5rem;
+                text-align: center;
+                font-weight: 300;
+            }
+            & tr:nth-child(even){
+                background-color: map-get($purplescale, "500" );
+            }
+            & tr:not(:nth-child(even)){
+                background-color: map-get($purplescale, "800" );
+            }
+    }
+}
+
+.admin-edit{
+    background: map-get($purplescale,"500" );
+    padding: 3rem;
+    width: 50%;
+    border-radius: 10px;
+}
+

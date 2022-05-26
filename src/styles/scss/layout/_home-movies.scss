@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.home-movies{
+    // display: flex;
+    // flex-wrap:wrap;
+    // gap: 1rem;
+    place-content: center;
+    padding: 0.6rem;
+    display: grid;
+  gap: 1.2em;
+  grid-template-columns: repeat(auto-fit, minmax(200px,7rem));
+    
+}
